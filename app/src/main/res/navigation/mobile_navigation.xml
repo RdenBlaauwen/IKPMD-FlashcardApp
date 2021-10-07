@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_start_session">
+    app:startDestination="@+id/nav_session">
 
     <fragment
-        android:id="@+id/nav_start_session"
-        android:name="com.example.ikpmd_flashcard.ui.home.HomeFragment"
-        android:label="@string/menu_start_session"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_session"
+        android:name="com.example.ikpmd_flashcard.ui.session.SessionFragment"
+        android:label="@string/menu_session"
+        tools:layout="@layout/fragment_session" />
 
     <fragment
         android:id="@+id/nav_add_card"
-        android:name="com.example.ikpmd_flashcard.ui.gallery.GalleryFragment"
+        android:name="com.example.ikpmd_flashcard.ui.addCard.AddCardFragment"
         android:label="@string/menu_add_card"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_add_card" />
 
     <fragment
         android:id="@+id/nav_statistics"
-        android:name="com.example.ikpmd_flashcard.ui.slideshow.SlideshowFragment"
+        android:name="com.example.ikpmd_flashcard.ui.statistics.StatisticsFragment"
         android:label="@string/menu_statistics"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_statistics" />
 </navigation>

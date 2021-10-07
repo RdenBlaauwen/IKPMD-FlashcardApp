@@ -1,16 +1,16 @@
-package com.example.ikpmd_flashcard.ui.gallery;
+package com.example.ikpmd_flashcard.ui.statistics;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class StatisticsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public StatisticsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is statistics fragment");
     }
 
     public LiveData<String> getText() {

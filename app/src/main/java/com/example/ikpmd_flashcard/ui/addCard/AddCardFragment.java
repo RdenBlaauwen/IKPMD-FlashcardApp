@@ -1,4 +1,4 @@
-package com.example.ikpmd_flashcard.ui.slideshow;
+package com.example.ikpmd_flashcard.ui.addCard;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.ikpmd_flashcard.R;
-import com.example.ikpmd_flashcard.databinding.FragmentSlideshowBinding;
+import com.example.ikpmd_flashcard.databinding.FragmentAddCardBinding;
 
-public class SlideshowFragment extends Fragment {
+public class AddCardFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
-    private FragmentSlideshowBinding binding;
+    private AddCardViewModel addCardViewModel;
+    private FragmentAddCardBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        addCardViewModel =
+                new ViewModelProvider(this).get(AddCardViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentAddCardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textGallery;
+        addCardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
