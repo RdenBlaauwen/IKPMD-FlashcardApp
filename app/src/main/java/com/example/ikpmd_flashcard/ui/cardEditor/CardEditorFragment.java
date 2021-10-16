@@ -1,12 +1,14 @@
 package com.example.ikpmd_flashcard.ui.cardEditor;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.ikpmd_flashcard.R;
 
@@ -16,6 +18,8 @@ import com.example.ikpmd_flashcard.R;
  * create an instance of this fragment.
  */
 public class CardEditorFragment extends Fragment {
+
+//    private ViewGroup root;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,10 +62,30 @@ public class CardEditorFragment extends Fragment {
         }
     }
 
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        Button saveButton = (Button) view.findViewById(R.id.buttonSave);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helloWorld(v);
+            }
+        });
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_card_editor, container, false);
+    }
+
+    public void helloWorld(View saveButton){
+        Log.d("FunctionalityTest","CardFragment - Save START! ");
+        EditText questionView = (EditText) getView().findViewById(R.id.editTextQuestion);
+        EditText answerView = (EditText) getView().findViewById(R.id.editTextAnswer);
+        String question = questionView.getText().toString();
+        String answer = answerView.getText().toString();
+
+        Log.d("FunctionalityTest","CardFragment - Save! "+question+" "+answer);
     }
 }

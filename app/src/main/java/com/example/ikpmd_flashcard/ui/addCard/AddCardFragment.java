@@ -42,4 +42,8 @@ public class AddCardFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+//    public void helloWorld(View saveButton){
+//        Log.d("FunctionalityTest","CardFragment - Save!");
+//    }
 }

@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_add_card"
-        android:name="com.example.ikpmd_flashcard.ui.addCard.AddCardFragment"
+        android:name="com.example.ikpmd_flashcard.ui.cardEditor.CardEditorFragment"
         android:label="@string/menu_add_card"
-        tools:layout="@layout/fragment_add_card" />
+        tools:layout="@layout/fragment_card_editor" />
 
     <fragment
         android:id="@+id/nav_statistics"
