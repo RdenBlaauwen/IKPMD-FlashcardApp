@@ -30,6 +30,9 @@ public class CardEditorFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private EditText questionTextView;
+    private EditText answerTextView;
+
     public CardEditorFragment() {
         super(R.layout.fragment_card_editor);
         // Required empty public constructor
@@ -64,10 +67,14 @@ public class CardEditorFragment extends Fragment {
 
     public void onViewCreated(View view, Bundle savedInstanceState){
         Button saveButton = (Button) view.findViewById(R.id.buttonSave);
+        this.questionTextView = (EditText) getView().findViewById(R.id.editTextQuestion);
+        this.answerTextView = (EditText) getView().findViewById(R.id.editTextAnswer);
+
+        // init OnClickListener for
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                helloWorld(v);
+                saveCard(v);
             }
         });
     }
@@ -79,12 +86,10 @@ public class CardEditorFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_card_editor, container, false);
     }
 
-    public void helloWorld(View saveButton){
+    public void saveCard(View saveButton){
         Log.d("FunctionalityTest","CardFragment - Save START! ");
-        EditText questionView = (EditText) getView().findViewById(R.id.editTextQuestion);
-        EditText answerView = (EditText) getView().findViewById(R.id.editTextAnswer);
-        String question = questionView.getText().toString();
-        String answer = answerView.getText().toString();
+        String question = this.questionTextView.getText().toString();
+        String answer = this.answerTextView.getText().toString();
 
         Log.d("FunctionalityTest","CardFragment - Save! "+question+" "+answer);
     }
