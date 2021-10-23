@@ -6,8 +6,8 @@ import java.util.UUID;
 public class Card {
     static int NUMBER_OF_CORRECT_ANSWERS_NEEDED = 7;
     UUID id;
-    String question;
-    String answer;
+    public String question;
+    public String answer;
     ZonedDateTime lastCorrectAt;
     boolean[] results;
 

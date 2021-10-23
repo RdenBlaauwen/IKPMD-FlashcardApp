@@ -1,6 +1,8 @@
 package com.example.ikpmd_flashcard.ui.cardEditor;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,6 +71,23 @@ public class CardEditorFragment extends Fragment {
         Button saveButton = (Button) view.findViewById(R.id.buttonSave);
         this.questionTextView = (EditText) getView().findViewById(R.id.editTextQuestion);
         this.answerTextView = (EditText) getView().findViewById(R.id.editTextAnswer);
+
+        this.questionTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Log.d("TextWatcher Test", s.toString());
+            }
+        });
 
         // init OnClickListener for
         saveButton.setOnClickListener(new View.OnClickListener() {
