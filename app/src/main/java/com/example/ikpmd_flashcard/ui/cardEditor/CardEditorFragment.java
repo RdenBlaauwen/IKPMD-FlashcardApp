@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ikpmd_flashcard.R;
 
@@ -22,6 +23,7 @@ import com.example.ikpmd_flashcard.R;
 public class CardEditorFragment extends Fragment {
 
 //    private ViewGroup root;
+    private CardEditorViewModel viewModelKEK;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -68,25 +70,40 @@ public class CardEditorFragment extends Fragment {
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState){
+        this.viewModelKEK = new ViewModelProvider(requireActivity()).get(CardEditorViewModel.class);
+
         Button saveButton = (Button) view.findViewById(R.id.buttonSave);
         this.questionTextView = (EditText) getView().findViewById(R.id.editTextQuestion);
         this.answerTextView = (EditText) getView().findViewById(R.id.editTextAnswer);
 
         this.questionTextView.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
             @Override
             public void afterTextChanged(Editable s) {
-                Log.d("TextWatcher Test", s.toString());
+                viewModelKEK.setQuestion(s.toString());
             }
+        });
+
+        this.answerTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                viewModelKEK.setAnswer(s.toString());
+            }
+        });
+
+        this.viewModelKEK.getCard().observe(getViewLifecycleOwner(), card -> {
+            Log.d("TextWatcher question change + card update test", "msg: "+card.question+" "+card.answer);
         });
 
         // init OnClickListener for
