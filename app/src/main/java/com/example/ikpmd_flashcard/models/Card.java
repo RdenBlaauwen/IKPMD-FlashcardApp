@@ -4,14 +4,17 @@ import java.time.ZonedDateTime;
 import java.util.UUID;
 
 public class Card {
-    static int NUMBER_OF_CORRECT_ANSWERS_NEEDED = 7;
-    UUID id;
-    String question;
-    String answer;
-    ZonedDateTime lastCorrectAt;
+    public static final int RESULTS_SAMPLE_SIZE = 7;
+    public final UUID id;
+    public String question;
+    public String answer;
+    public ZonedDateTime lastCorrectAt;
+    public ZonedDateTime updatedAt;
+    public boolean cloudSynced;
     boolean[] results;
 
-    public Card(){
-        this.results = new boolean[NUMBER_OF_CORRECT_ANSWERS_NEEDED];
+    public Card(UUID id){
+        this.id = id;
+        this.results = new boolean[RESULTS_SAMPLE_SIZE];
     }
 }
